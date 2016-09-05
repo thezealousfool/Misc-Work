@@ -1,0 +1,20 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+title: Jadavpur University Code Club
+email: your-email@domain.com
+description: > # this means to ignore newlines until "baseurl:"
+  The code club at Jadavpur University aims at providing real world scenarios to its members as to how to use algorithms.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://yourdomain.com" # the base hostname & protocol for your site
+github_username:  codeclubju
+
+# Build settings
+
+markdown: kramdown
+port: 33455

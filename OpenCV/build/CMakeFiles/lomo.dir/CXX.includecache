@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/vivek/workspace/OpenCV/lomo.cpp
+iostream
+-
+string
+-
+vector
+-
+opencv2/core.hpp
+-
+opencv2/highgui.hpp
+-
+opencv2/imgproc.hpp
+-
+
