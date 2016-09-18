@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/vivek/workspace/OpenCV/contours.cpp
+iostream
+-
+opencv2/highgui.hpp
+-
+opencv2/core.hpp
+-
+

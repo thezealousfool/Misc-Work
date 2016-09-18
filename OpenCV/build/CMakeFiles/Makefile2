@@ -60,13 +60,50 @@ CMAKE_SOURCE_DIR = /home/vivek/workspace/OpenCV
 CMAKE_BINARY_DIR = /home/vivek/workspace/OpenCV/build
 
 #=============================================================================
+# Target rules for target CMakeFiles/contours.dir
+
+# All Build rule for target.
+CMakeFiles/contours.dir/all:
+	$(MAKE) -f CMakeFiles/contours.dir/build.make CMakeFiles/contours.dir/depend
+	$(MAKE) -f CMakeFiles/contours.dir/build.make CMakeFiles/contours.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/vivek/workspace/OpenCV/build/CMakeFiles --progress-num=1,2 "Built target contours"
+.PHONY : CMakeFiles/contours.dir/all
+
+# Include target in all.
+all: CMakeFiles/contours.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/contours.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vivek/workspace/OpenCV/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/contours.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vivek/workspace/OpenCV/build/CMakeFiles 0
+.PHONY : CMakeFiles/contours.dir/rule
+
+# Convenience name for target.
+contours: CMakeFiles/contours.dir/rule
+
+.PHONY : contours
+
+# clean rule for target.
+CMakeFiles/contours.dir/clean:
+	$(MAKE) -f CMakeFiles/contours.dir/build.make CMakeFiles/contours.dir/clean
+.PHONY : CMakeFiles/contours.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/contours.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/video.dir
 
 # All Build rule for target.
 CMakeFiles/video.dir/all:
 	$(MAKE) -f CMakeFiles/video.dir/build.make CMakeFiles/video.dir/depend
 	$(MAKE) -f CMakeFiles/video.dir/build.make CMakeFiles/video.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/vivek/workspace/OpenCV/build/CMakeFiles --progress-num=5,6 "Built target video"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/vivek/workspace/OpenCV/build/CMakeFiles --progress-num=7,8 "Built target video"
 .PHONY : CMakeFiles/video.dir/all
 
 # Include target in all.
@@ -103,7 +140,7 @@ clean: CMakeFiles/video.dir/clean
 CMakeFiles/image.dir/all:
 	$(MAKE) -f CMakeFiles/image.dir/build.make CMakeFiles/image.dir/depend
 	$(MAKE) -f CMakeFiles/image.dir/build.make CMakeFiles/image.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/vivek/workspace/OpenCV/build/CMakeFiles --progress-num=1,2 "Built target image"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/vivek/workspace/OpenCV/build/CMakeFiles --progress-num=3,4 "Built target image"
 .PHONY : CMakeFiles/image.dir/all
 
 # Include target in all.
@@ -140,7 +177,7 @@ clean: CMakeFiles/image.dir/clean
 CMakeFiles/lomo.dir/all:
 	$(MAKE) -f CMakeFiles/lomo.dir/build.make CMakeFiles/lomo.dir/depend
 	$(MAKE) -f CMakeFiles/lomo.dir/build.make CMakeFiles/lomo.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/vivek/workspace/OpenCV/build/CMakeFiles --progress-num=3,4 "Built target lomo"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/vivek/workspace/OpenCV/build/CMakeFiles --progress-num=5,6 "Built target lomo"
 .PHONY : CMakeFiles/lomo.dir/all
 
 # Include target in all.
@@ -177,7 +214,7 @@ clean: CMakeFiles/lomo.dir/clean
 CMakeFiles/vignette.dir/all:
 	$(MAKE) -f CMakeFiles/vignette.dir/build.make CMakeFiles/vignette.dir/depend
 	$(MAKE) -f CMakeFiles/vignette.dir/build.make CMakeFiles/vignette.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/vivek/workspace/OpenCV/build/CMakeFiles --progress-num=7,8 "Built target vignette"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/vivek/workspace/OpenCV/build/CMakeFiles --progress-num=9,10 "Built target vignette"
 .PHONY : CMakeFiles/vignette.dir/all
 
 # Include target in all.

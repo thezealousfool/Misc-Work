@@ -3,19 +3,19 @@
 
 std::array<std::array<bool, 7>, 3> nim;
 
-inline user1() {
+inline void user1() {
     std::cout << "User 1's turn: \n";
 }
 
-inline user2() {
+inline void user2() {
     std::cout << "User 2's turn: \n";
 }
 
-inline error() {
+inline void error() {
     std::cout << "Error!!\n";
 }
 
-inline print() {
+inline void print() {
     int end;
     for(int i=0; i<3; ++i) {
         switch(i) {

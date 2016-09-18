@@ -74,7 +74,7 @@ int main() {
 	upper_triangular_solution(N, mat);
 
 	for (loop = 0; loop < N; ++loop) {
-		printf("x%d : %f\n", loop+1, mat[loop][4]);
+		printf("x%d : %f\n", loop+1, mat[loop][N]);
 	}
 	printf("\n");
 	return 0;

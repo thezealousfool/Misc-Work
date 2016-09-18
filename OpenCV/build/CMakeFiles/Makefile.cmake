@@ -45,6 +45,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
+  "CMakeFiles/contours.dir/DependInfo.cmake"
   "CMakeFiles/video.dir/DependInfo.cmake"
   "CMakeFiles/image.dir/DependInfo.cmake"
   "CMakeFiles/lomo.dir/DependInfo.cmake"

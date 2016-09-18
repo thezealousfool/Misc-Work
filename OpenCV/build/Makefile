@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named contours
+
+# Build rule for target.
+contours: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 contours
+.PHONY : contours
+
+# fast build rule for target.
+contours/fast:
+	$(MAKE) -f CMakeFiles/contours.dir/build.make CMakeFiles/contours.dir/build
+.PHONY : contours/fast
+
+#=============================================================================
 # Target rules for targets named video
 
 # Build rule for target.
@@ -161,6 +174,33 @@ vignette: cmake_check_build_system
 vignette/fast:
 	$(MAKE) -f CMakeFiles/vignette.dir/build.make CMakeFiles/vignette.dir/build
 .PHONY : vignette/fast
+
+contours.o: contours.cpp.o
+
+.PHONY : contours.o
+
+# target to build an object file
+contours.cpp.o:
+	$(MAKE) -f CMakeFiles/contours.dir/build.make CMakeFiles/contours.dir/contours.cpp.o
+.PHONY : contours.cpp.o
+
+contours.i: contours.cpp.i
+
+.PHONY : contours.i
+
+# target to preprocess a source file
+contours.cpp.i:
+	$(MAKE) -f CMakeFiles/contours.dir/build.make CMakeFiles/contours.dir/contours.cpp.i
+.PHONY : contours.cpp.i
+
+contours.s: contours.cpp.s
+
+.PHONY : contours.s
+
+# target to generate assembly for a file
+contours.cpp.s:
+	$(MAKE) -f CMakeFiles/contours.dir/build.make CMakeFiles/contours.dir/contours.cpp.s
+.PHONY : contours.cpp.s
 
 image.o: image.cpp.o
 
@@ -276,12 +316,16 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... contours"
 	@echo "... video"
 	@echo "... rebuild_cache"
 	@echo "... image"
 	@echo "... edit_cache"
 	@echo "... lomo"
 	@echo "... vignette"
+	@echo "... contours.o"
+	@echo "... contours.i"
+	@echo "... contours.s"
 	@echo "... image.o"
 	@echo "... image.i"
 	@echo "... image.s"
