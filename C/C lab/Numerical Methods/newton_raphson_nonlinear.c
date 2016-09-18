@@ -94,7 +94,7 @@ int main()
 	scanf("%f", &x1);
 	printf("Enter initial approximation of y: ");
 	scanf("%f", &y1);
-	printf(" No      x        y       error       h          k\n");
+	printf("\n No         x            y          error          h             k\n");
 	do {
 		x0 = x1;
 		y0 = y1;
@@ -112,7 +112,7 @@ int main()
 		x1 = x0 + A[0][2];
 		y1 = y0 + A[1][2];
 		error = MAX(fabs(x1 - x0), fabs(y1 - y0));
-		printf("%2d  %9.6f %9.6f %9.6f %9.6f %9.6f\n", iteration, x0, y0, error, A[0][2], A[1][2]);
+		printf("%3d  %12.6f %12.6f %12.6f %12.6f %12.6f\n", iteration, x0, y0, error, A[0][2], A[1][2]);
 	} while (error >= 0.0000005);
 	printf("\n\nSolution:\nx: %9.6f\ny: %9.6f\n", x1, y1);
 	return 0;
