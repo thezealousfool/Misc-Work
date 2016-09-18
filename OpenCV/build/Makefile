@@ -39,10 +39,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/bin/cmake
+CMAKE_COMMAND = /usr/local/bin/cmake
 
 # The command to remove a file.
-RM = /usr/bin/cmake -E remove -f
+RM = /usr/local/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/vivek/workspace/OpenCV/build
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/usr/local/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -109,6 +109,19 @@ preinstall/fast:
 depend:
 	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
+
+#=============================================================================
+# Target rules for targets named videocapture
+
+# Build rule for target.
+videocapture: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 videocapture
+.PHONY : videocapture
+
+# fast build rule for target.
+videocapture/fast:
+	$(MAKE) -f CMakeFiles/videocapture.dir/build.make CMakeFiles/videocapture.dir/build
+.PHONY : videocapture/fast
 
 #=============================================================================
 # Target rules for targets named contours
@@ -283,6 +296,33 @@ video.cpp.s:
 	$(MAKE) -f CMakeFiles/video.dir/build.make CMakeFiles/video.dir/video.cpp.s
 .PHONY : video.cpp.s
 
+videocapture.o: videocapture.cpp.o
+
+.PHONY : videocapture.o
+
+# target to build an object file
+videocapture.cpp.o:
+	$(MAKE) -f CMakeFiles/videocapture.dir/build.make CMakeFiles/videocapture.dir/videocapture.cpp.o
+.PHONY : videocapture.cpp.o
+
+videocapture.i: videocapture.cpp.i
+
+.PHONY : videocapture.i
+
+# target to preprocess a source file
+videocapture.cpp.i:
+	$(MAKE) -f CMakeFiles/videocapture.dir/build.make CMakeFiles/videocapture.dir/videocapture.cpp.i
+.PHONY : videocapture.cpp.i
+
+videocapture.s: videocapture.cpp.s
+
+.PHONY : videocapture.s
+
+# target to generate assembly for a file
+videocapture.cpp.s:
+	$(MAKE) -f CMakeFiles/videocapture.dir/build.make CMakeFiles/videocapture.dir/videocapture.cpp.s
+.PHONY : videocapture.cpp.s
+
 vignette.o: vignette.cpp.o
 
 .PHONY : vignette.o
@@ -316,6 +356,7 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... videocapture"
 	@echo "... contours"
 	@echo "... video"
 	@echo "... rebuild_cache"
@@ -335,6 +376,9 @@ help:
 	@echo "... video.o"
 	@echo "... video.i"
 	@echo "... video.s"
+	@echo "... videocapture.o"
+	@echo "... videocapture.i"
+	@echo "... videocapture.s"
 	@echo "... vignette.o"
 	@echo "... vignette.i"
 	@echo "... vignette.s"
