@@ -2,32 +2,32 @@
 #include <math.h>
 #include <stdlib.h>
 #define N 2
-#define MAX(X, Y) (((X) < (Y)) ? (X) : (Y))
-// f1 : x^2 + x*y - 10
-// f2 : y + 3*x*(y^2) - 57
+#define MAX(X, Y) (((X) > (Y)) ? (X) : (Y))
+// f1 : x^2 + y^2 - 50
+// f2 : xy - 25
 
 float f1(float x, float y) {
-	return x*x + x*y - 10;
+	return x*x + y*y - 50;
 }
 
 float f2(float x, float y) {
-	return y + 3*x*y*y - 57;
+	return x*y - 25;
 }
 
 float df1_dx(float x, float y) {
-	return 2*x + y;
+	return 2*x;
 }
 
 float df2_dx(float x, float y) {
-	return 3*y*y;
+	return y;
 }
 
 float df1_dy(float x, float y) {
-	return x;
+	return 2*y;
 }
 
 float df2_dy(float x, float y) {
-	return 1 + 6*x*y;
+	return x;
 }
 
 void upper_triangular_solution( int n, float mat[n][n+1] ) {
@@ -106,8 +106,14 @@ int main()
 		A[1][0] = df2_dx(x0, y0);
 		A[1][1] = df2_dy(x0, y0);
 		if (solve_h_k(N, A)) {
-			printf("Cannot find solution for these values\nAborting!!\n");
-			return 1;
+			if (f1(x0, y0) || f2(x0, y0)) {
+				printf("Cannot find solution for these values\nAborting!!\n");
+				return 1;
+			}
+			else {
+				A[0][2] = 0;
+				A[1][2] = 0;
+			}
 		}
 		x1 = x0 + A[0][2];
 		y1 = y0 + A[1][2];

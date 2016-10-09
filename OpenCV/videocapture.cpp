@@ -6,7 +6,7 @@
 
 const char* keys = {
 	"{help h usage | | print this message}"
-	"{@output_file o | | Video file path, if not defined use video.avi}"
+	"{@output_file o | | Video file path, if not defined use video.mp4}"
 };
 
 int main(int argc, char const *argv[])
@@ -27,7 +27,7 @@ int main(int argc, char const *argv[])
 	}
 
 	if (video_file == "") {
-		video_file = "video.avi";
+		video_file = "video.mp4";
 	}
 
 	cv::VideoCapture cap(0);
