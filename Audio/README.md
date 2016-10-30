@@ -6,16 +6,18 @@
 Python 2.x must be installed on your system. For instructions on installing python please visit https://www.python.org
 
 ### In Ubuntu(or other Debian base systems)
-
+```
 sudo apt-get install ffmpeg python-numpy python-matplotlib gnuplot gnuplot-x11
 
 sudo pip install pydub
-
+```
 
 ### In Manjaro(or other Arch base systems)
-
+```
 sudo pacman -S ffmpeg python-numpy python-matplotlib gnuplot
 
+sudo pip install pydub
+```
 
 
 
@@ -30,8 +32,8 @@ sudo pacman -S ffmpeg python-numpy python-matplotlib gnuplot
 
 
 ### From terminal:
-
+```
 python v1.py {input_file_path} {output_file_path}
 
 gnuplot -p -e "plot '{output_file_path}' w filledcurves x1"
-
+```
