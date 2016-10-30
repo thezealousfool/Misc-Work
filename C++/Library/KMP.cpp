@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 
-auto populate_kmp_values (std::string text) {
+auto populate_kmp_value
 	std::vector<int> values(text.length());
 	values[0] = 0;
 	int i = 0, j = 0;
