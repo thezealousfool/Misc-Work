@@ -27,7 +27,6 @@ song = AudioSegment.from_mp3(sys.argv[1])
 
 print()
 print("Analyzing", os.path.splitext(os.path.basename(file_name))[0])
-print()
 sys.stdout.flush()
 
 # duration of song in seconds

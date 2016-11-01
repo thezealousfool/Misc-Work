@@ -7,14 +7,14 @@ Python 2.x must be installed on your system. For instructions on installing pyth
 
 ### In Ubuntu(or other Debian base systems)
 ```
-sudo apt-get install ffmpeg python-numpy python-matplotlib gnuplot gnuplot-x11
+sudo apt-get install ffmpeg python-numpy python-matplotlib gnuplot gnuplot-x11 python-pip
 
 sudo pip install pydub
 ```
 
 ### In Manjaro(or other Arch base systems)
 ```
-sudo pacman -S ffmpeg python-numpy python-matplotlib gnuplot
+sudo pacman -S ffmpeg python-numpy python-matplotlib gnuplot python-pip
 
 sudo pip install pydub
 ```
