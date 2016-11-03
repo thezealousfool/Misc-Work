@@ -1,3 +1,0 @@
-/home/vivek/workspace/OpenCV/Binarization/build/CMakeFiles/edit_cache.dir
-/home/vivek/workspace/OpenCV/Binarization/build/CMakeFiles/rebuild_cache.dir
-/home/vivek/workspace/OpenCV/Binarization/build/CMakeFiles/naive.dir
