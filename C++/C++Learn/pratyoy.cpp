@@ -5,9 +5,9 @@ Int factor_count(Int n)
 {
 	Int count = 0;
 	for(Int i = 2; i < n; ++i) {
-		if(n % 2 == 0) {
+		if(n % i == 0) {
 			++count;
-			n /= 2;
+			n /= i;
 		}
 	}
 	return count;
