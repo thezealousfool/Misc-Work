@@ -6,6 +6,7 @@ int main(void) {
     int h, half_h, w, r, c;
     int f, g, f2, g2;
     int cycles;
+    char tmp;
     float cycle, x, extent;
     //Draw the graph of sin(x).
     //  Display dimensions are w & h
@@ -28,6 +29,7 @@ int main(void) {
               else printf("-");
                x = x + extent / w; c = c + 1;
         };
+	scanf("%c", &tmp);
         printf("\n");
     };
 
