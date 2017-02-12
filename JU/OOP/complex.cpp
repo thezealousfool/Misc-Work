@@ -45,12 +45,18 @@ class complex_no {
 			minus = true;
 		else if(temp == '+')
 			minus = false;
-		else
+		else {
+			c1.r = 0;
+			while(s.get() != '\n');
 			return s;
+		}
 
 		s >> temp;
-		if(temp != 'i')
+		if(temp != 'i') {
+			c1.r = 0;
+			while(s.get() != '\n');
 			return s;
+		}
 		
 		s >> c1.i;
 
