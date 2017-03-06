@@ -106,6 +106,7 @@ class Student
         std::cout << std::setw(10) << m[2];
         std::cout << std::setw(10) << m[3];
         std::cout << std::setw(10) << m[4];
+        std::cout << std::setw(10) << m[0] + m[1] + m[2] + m[3] + m[4];
         std::cout.unsetf(std::ios::left);
     }
 };
@@ -175,6 +176,7 @@ class StudentBatch
         std::cout << std::setw(10) << "Sub 2";
         std::cout << std::setw(10) << "Sub 3";
         std::cout << std::setw(10) << "Sub 4";
+        std::cout << std::setw(10) << "Total";
         std::cout << "\n";
         for(Student s : students) {
             s.printPretty();
@@ -302,4 +304,5 @@ int main()
         if(choice == 7)
             break;
     }
+    return 0;
 }
