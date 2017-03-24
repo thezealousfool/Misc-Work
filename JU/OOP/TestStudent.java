@@ -4,6 +4,7 @@ import java.util.*;
 class Student
 {
     protected int roll, marks[];
+    protected double average;
     protected String name, course;
     protected Date admissionDate;
 
@@ -29,14 +30,20 @@ class Student
         this.marks = marks;
         this.course = course;
         this.admissionDate = admissionDate;
+        this.average = (marks[0] + marks[1] + marks[2] + marks[3] + marks[4]) / 5.0;
     }
 
     public void setMarks(int marks[]) {
         this.marks = marks;
+        this.average = (marks[0] + marks[1] + marks[2] + marks[3] + marks[4]) / 5.0;
     }
 
     public int[] getMarks() {
         return marks;
+    }
+
+    public double getAverageMarks() {
+        return average;
     }
 
     public String getName() {
@@ -56,7 +63,7 @@ class Student
     }
 
     public String toString() {
-        return String.format("%-40s%-7s%-40s%-35s%-12s%-12s%-12s%-12s%-12s\n", name, String.valueOf(roll), course, String.valueOf(admissionDate), String.valueOf(marks[0]), String.valueOf(marks[1]), String.valueOf(marks[2]), String.valueOf(marks[3]), String.valueOf(marks[4]));
+        return String.format("%-30s%-7s%-30s%-35s%-12s%-12s%-12s%-12s%-12s%-12s\n", name, String.valueOf(roll), course, String.valueOf(admissionDate), String.valueOf(marks[0]), String.valueOf(marks[1]), String.valueOf(marks[2]), String.valueOf(marks[3]), String.valueOf(marks[4]), String.valueOf(average));
     }
 }
 
@@ -83,6 +90,10 @@ class StudentList
     public void allocate(int noStudents) {
         list = new Student[noStudents];
         capacity = noStudents;
+    }
+
+    public int getStudentsAdmitted() {
+        return size;
     }
 
     public boolean addStudent(Student s) {
@@ -131,14 +142,14 @@ class StudentList
         if(index == -1)
             return "";
         else {
-            StringBuilder sB = new StringBuilder(String.format("%-40s%-7s%-40s%-35s%-12s%-12s%-12s%-12s%-12s\n", "Name", "Roll", "Course", "Admission Date", "Subject 1", "Subject 2", "Subject 3", "Subject 4", "Subject 5"));
+            StringBuilder sB = new StringBuilder(String.format("%-30s%-7s%-30s%-35s%-12s%-12s%-12s%-12s%-12s%-12s\n", "Name", "Roll", "Course", "Admission Date", "Subject 1", "Subject 2", "Subject 3", "Subject 4", "Subject 5", "Average"));
             sB.append(list[index].toString());
             return sB.toString();
         }
     }
 
     public String toString() {
-        StringBuilder sB = new StringBuilder(String.format("%-40s%-7s%-40s%-35s%-12s%-12s%-12s%-12s%-12s\n", "Name", "Roll", "Course", "Admission Date", "Subject 1", "Subject 2", "Subject 3", "Subject 4", "Subject 5"));
+        StringBuilder sB = new StringBuilder(String.format("%-30s%-7s%-30s%-35s%-12s%-12s%-12s%-12s%-12s%-12s\n", "Name", "Roll", "Course", "Admission Date", "Subject 1", "Subject 2", "Subject 3", "Subject 4", "Subject 5", "Average"));
         for(int i = 0; i < size; ++i) {
             sB.append(list[i].toString());
         }
@@ -169,9 +180,9 @@ public class TestStudent
                         System.out.print("Course: ");
                         String course = bf.readLine();
                         if(sl.addStudent(name, roll, course, new Date()))
-                            System.out.println("Successful");
+                            System.out.println("Successful\n");
                         else
-                            System.out.println("Failed");                        
+                            System.out.println("Failed\n");                        
                     }
                     break;
                 case 2:
@@ -186,21 +197,21 @@ public class TestStudent
                         int marks4 = Integer.parseInt(bf.readLine());
                         int marks[] = {marks0, marks1, marks2, marks3, marks4};
                         if(sl.setMarks(roll, marks))
-                            System.out.println("Successful");
+                            System.out.println("Successful\n");
                         else
-                            System.out.println("Failed");                        
+                            System.out.println("Failed\n");                        
                     }
                     break;
                 case 3:
                     {
                         System.out.print("Enter roll: ");
                         int roll = Integer.parseInt(bf.readLine());
-                        System.out.print(sl.toStringStudent(roll));
+                        System.out.println(sl.toStringStudent(roll));
                     }
                     break;
                 case 4:
                     {
-                        System.out.print(sl);
+                        System.out.println(sl);
                     }
                     break;
                 case 5:

@@ -27,7 +27,7 @@ class StudentExtended extends Student
     }
 
     public String toString() {
-        return String.format("%-25s%-7s%-25s%-25s%-35s%-12s%-12s%-12s%-12s%-12s\n", name, String.valueOf(roll), department, course, String.valueOf(admissionDate), String.valueOf(marks[0]), String.valueOf(marks[1]), String.valueOf(marks[2]), String.valueOf(marks[3]), String.valueOf(marks[4]));
+        return String.format("%-20s%-7s%-20s%-20s%-35s%-12s%-12s%-12s%-12s%-12s%-12s\n", name, String.valueOf(roll), department, course, String.valueOf(admissionDate), String.valueOf(marks[0]), String.valueOf(marks[1]), String.valueOf(marks[2]), String.valueOf(marks[3]), String.valueOf(marks[4]), String.valueOf(average));
     }
 }
 
@@ -37,6 +37,89 @@ class StudentListExtended extends StudentList
 
     protected Student[] getList() {
         return list;
+    }
+
+    protected StudentExtended[] getListExtended() {
+        return list;
+    }
+
+    private interface PrintCriteria {
+        public boolean check(StudentExtended student);
+    }
+
+    private class PrintDepartment implements PrintCriteria {
+        private String department;
+        public PrintDepartment(String department) {
+            this.department = department;
+        }
+        public boolean check(StudentExtended student) {
+            return department.equalsIgnoreCase(student.getDepartment());
+        }
+    }
+
+    private class AvgLessThan implements PrintCriteria {
+        private double value;
+        public AvgLessThan(double value) {
+            this.value = value;
+        }
+        public boolean check(StudentExtended student) {
+            return value > student.getAverageMarks();
+        }
+    }
+
+    private class AvgGreaterThan implements PrintCriteria {
+        private double value;
+        public AvgGreaterThan(double value) {
+            this.value = value;
+        }
+        public boolean check(StudentExtended student) {
+            return value < student.getAverageMarks();
+        }
+    }
+
+    private class AvgLessThanOrEquals implements PrintCriteria {
+        private double value;
+        public AvgLessThanOrEquals(double value) {
+            this.value = value;
+        }
+        public boolean check(StudentExtended student) {
+            return value >= student.getAverageMarks();
+        }
+    }
+
+    private class AvgGreaterThanOrEquals implements PrintCriteria {
+        private double value;
+        public AvgGreaterThanOrEquals(double value) {
+            this.value = value;
+        }
+        public boolean check(StudentExtended student) {
+            return value <= student.getAverageMarks();
+        }
+    }
+
+    private class AvgEquals implements PrintCriteria {
+        private double value;
+        public AvgEquals(double value) {
+            this.value = value;
+        }
+        public boolean check(StudentExtended student) {
+            return value == student.getAverageMarks();
+        }
+    }
+
+    private class PrintAlways implements PrintCriteria {
+        public boolean check(StudentExtended student) {
+            return true;
+        }
+    }
+
+    private String toStringGeneric(PrintCriteria test) {
+        StringBuilder sB = new StringBuilder(String.format("%-20s%-7s%-20s%-20s%-35s%-12s%-12s%-12s%-12s%-12s%-12s\n", "Name", "Roll", "Department", "Course", "Admission Date", "Subject 1", "Subject 2", "Subject 3", "Subject 4", "Subject 5", "Average"));
+        for(int i = 0; i < size; ++i) {
+            if(test.check(getListExtended()[i]))
+                sB.append(getListExtended()[i].toString());
+        }
+        return sB.toString();
     }
 
     public StudentListExtended() {
@@ -77,18 +160,38 @@ class StudentListExtended extends StudentList
         if(index == -1)
             return "";
         else {
-            StringBuilder sB = new StringBuilder(String.format("%-25s%-7s%-25s%-25s%-35s%-12s%-12s%-12s%-12s%-12s\n", "Name", "Roll", "Department", "Course", "Admission Date", "Subject 1", "Subject 2", "Subject 3", "Subject 4", "Subject 5"));
+            StringBuilder sB = new StringBuilder(String.format("%-20s%-7s%-20s%-20s%-35s%-12s%-12s%-12s%-12s%-12s%-12s\n", "Name", "Roll", "Department", "Course", "Admission Date", "Subject 1", "Subject 2", "Subject 3", "Subject 4", "Subject 5", "Average"));
             sB.append(list[index].toString());
             return sB.toString();
         }
     }
 
     public String toString() {
-            StringBuilder sB = new StringBuilder(String.format("%-25s%-7s%-25s%-25s%-35s%-12s%-12s%-12s%-12s%-12s\n", "Name", "Roll", "Department", "Course", "Admission Date", "Subject 1", "Subject 2", "Subject 3", "Subject 4", "Subject 5"));
-        for(int i = 0; i < size; ++i) {
-            sB.append(list[i].toString());
-        }
-        return sB.toString();
+        return toStringGeneric(new PrintAlways());
+    }
+
+    public String toStringStudentExtendedDepartment(String department) {
+        return toStringGeneric(new PrintDepartment(department));
+    }
+
+    public String toStringStudentExtendedAverageLessThan(double average) {
+        return toStringGeneric(new AvgLessThan(average));
+    }
+
+    public String toStringStudentExtendedAverageLessThanOrEquals(double average) {
+        return toStringGeneric(new AvgLessThanOrEquals(average));
+    }
+
+    public String toStringStudentExtendedAverageGreaterThan(double average) {
+        return toStringGeneric(new AvgGreaterThan(average));
+    }
+
+    public String toStringStudentExtendedAverageGreaterThanOrEquals(double average) {
+        return toStringGeneric(new AvgGreaterThanOrEquals(average));
+    }
+
+    public String toStringStudentExtendedAverageEquals(double average) {
+        return toStringGeneric(new AvgEquals(average));
     }
 }
 
@@ -100,7 +203,13 @@ class TestStudentExtended
         System.out.println("2. Set Marks");
         System.out.println("3. Print Marksheet of Student");
         System.out.println("4. Print Marksheet of all Students");
-        System.out.println("5. Exit");
+        System.out.println("5. Print Marksheet of Students of a Department");
+        System.out.println("6. Print Marksheet of Students with Average Marks less than");
+        System.out.println("7. Print Marksheet of Students with Average Marks greater than");
+        System.out.println("8. Print Marksheet of Students with Average Marks less than or equals");
+        System.out.println("9. Print Marksheet of Students with Average Marks greater than or equals");
+        System.out.println("10. Print Marksheet of Students with Average Marks equals");        
+        System.out.println("11. Exit");
         StudentListExtended sl = new StudentListExtended(100);
         while(true) {
             System.out.print("Enter choice: ");
@@ -117,9 +226,9 @@ class TestStudentExtended
                         System.out.print("Course: ");
                         String course = bf.readLine();
                         if(sl.addStudentExtended(name, roll, department, course, new Date()))
-                            System.out.println("Successful");
+                            System.out.println("Successful\n");
                         else
-                            System.out.println("Failed");                        
+                            System.out.println("Failed\n");                        
                     }
                     break;
                 case 2:
@@ -134,29 +243,71 @@ class TestStudentExtended
                         int marks4 = Integer.parseInt(bf.readLine());
                         int marks[] = {marks0, marks1, marks2, marks3, marks4};
                         if(sl.setMarks(roll, marks))
-                            System.out.println("Successful");
+                            System.out.println("Successful\n");
                         else
-                            System.out.println("Failed");                        
+                            System.out.println("Failed\n");                        
                     }
                     break;
                 case 3:
                     {
                         System.out.print("Enter roll: ");
                         int roll = Integer.parseInt(bf.readLine());
-                        System.out.print(sl.toStringStudentExtended(roll));
+                        System.out.println(sl.toStringStudentExtended(roll));
                     }
                     break;
                 case 4:
                     {
-                        System.out.print(sl);
+                        System.out.println(sl);
                     }
                     break;
                 case 5:
+                    {
+                        System.out.print("Enter department name: ");
+                        String department = bf.readLine();
+                        System.out.println(sl.toStringStudentExtendedDepartment(department));
+                    }
+                    break;
+                case 6:
+                    {
+                        System.out.print("Enter value: ");
+                        double value = Double.parseDouble(bf.readLine());
+                        System.out.println(sl.toStringStudentExtendedAverageLessThan(value));
+                    }
+                    break;
+                case 7:
+                    {
+                        System.out.print("Enter value: ");
+                        double value = Double.parseDouble(bf.readLine());
+                        System.out.println(sl.toStringStudentExtendedAverageGreaterThan(value));
+                    }
+                    break;
+                case 8:
+                    {
+                        System.out.print("Enter value: ");
+                        double value = Double.parseDouble(bf.readLine());
+                        System.out.println(sl.toStringStudentExtendedAverageLessThanOrEquals(value));
+                    }
+                    break;
+                case 9:
+                    {
+                        System.out.print("Enter value: ");
+                        double value = Double.parseDouble(bf.readLine());
+                        System.out.println(sl.toStringStudentExtendedAverageGreaterThanOrEquals(value));
+                    }
+                    break;
+                case 10:
+                    {
+                        System.out.print("Enter value: ");
+                        double value = Double.parseDouble(bf.readLine());
+                        System.out.println(sl.toStringStudentExtendedAverageEquals(value));
+                    }
+                    break;
+                case 11:
                     break;
                 default:
                     System.out.println("Invalid Entry!");
             }
-            if(choice == 5)
+            if(choice == 11)
                 break;
         }
     }
