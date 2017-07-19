@@ -57,5 +57,14 @@ std::vector<int> factorial(int number) {
 }
 
 int main() {
+	int number;
+	std::cout << "Enter number: ";
+	std::cin >> number;
+	auto digits = factorial(number);
+	std::cout << '\n';
+	for (auto digit : digits) {
+		std::cout << digit;
+	}
+	std::cout << '\n';
 	return 0;
 }
