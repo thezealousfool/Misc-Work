@@ -1,0 +1,76 @@
+        id               value                     type      line      char
+---------------------------------------------------------------------------
+         1                 int                  Keyword         1         1
+         2                main               Identifier         1         5
+         3                   (           Special Symbol         1         9
+         4                   )           Special Symbol         1        10
+         5                   {           Special Symbol         1        12
+         1                 int                  Keyword         4         3
+         6                   a               Identifier         4         7
+         7                   =      Assignment Operator         4         9
+         8                   0                  Literal         4        11
+         9                   ,           Special Symbol         4        12
+        10                   b               Identifier         4        14
+         7                   =      Assignment Operator         4        15
+        11                   5                  Literal         4        16
+        12                   ;           Special Symbol         4        17
+         1                 int                  Keyword         5         3
+        13                   c               Identifier         5         7
+         7                   =      Assignment Operator         5         9
+         6                   a               Identifier         5        11
+        14                   +      Arithmetic Operator         5        12
+        10                   b               Identifier         5        13
+        15                   /      Arithmetic Operator         5        14
+        16                   2                  Literal         5        15
+        12                   ;           Special Symbol         5        16
+        17                 for                  Keyword         6         3
+         3                   (           Special Symbol         6         6
+         1                 int                  Keyword         6         7
+        18                   i               Identifier         6        11
+         7                   =      Assignment Operator         6        12
+         8                   0                  Literal         6        13
+        12                   ;           Special Symbol         6        14
+        18                   i               Identifier         6        16
+        19                   <      Relational Operator         6        17
+        11                   5                  Literal         6        18
+        12                   ;           Special Symbol         6        19
+        18                   i               Identifier         6        21
+         7                   =      Assignment Operator         6        22
+        18                   i               Identifier         6        23
+        14                   +      Arithmetic Operator         6        24
+        20                   1                  Literal         6        25
+         4                   )           Special Symbol         6        26
+         5                   {           Special Symbol         6        28
+        13                   c               Identifier         7         5
+         7                   =      Assignment Operator         7         7
+        13                   c               Identifier         7         9
+        14                   +      Arithmetic Operator         7        11
+        20                   1                  Literal         7        13
+        12                   ;           Special Symbol         7        14
+        21                   }           Special Symbol         8         3
+         1                 int                  Keyword         9         3
+        22                 2a2       Invalid Identifier         9         7
+         7                   =      Assignment Operator         9        10
+        23                  32                  Literal         9        11
+        12                   ;           Special Symbol         9        13
+         1                 int                  Keyword        10         3
+        24                  a3               Identifier        10         7
+         7                   =      Assignment Operator        10        10
+        16                   2                  Literal        10        12
+        25                   *      Arithmetic Operator        10        13
+        22                 2a2       Invalid Identifier        10        14
+        12                   ;           Special Symbol        10        17
+        26                char               Identifier        11         3
+        13                   c               Identifier        11         8
+         7                   =      Assignment Operator        11        10
+        27                 'h'                  Literal        11        12
+        12                   ;           Special Symbol        11        15
+        28              string               Identifier        12         3
+        29                   s               Identifier        12        10
+         7                   =      Assignment Operator        12        12
+        30             "hello"                  Literal        12        14
+        12                   ;           Special Symbol        12        21
+        31              return                  Keyword        16         3
+         8                   0                  Literal        16        10
+        12                   ;           Special Symbol        16        11
+        21                   }           Special Symbol        17         1
