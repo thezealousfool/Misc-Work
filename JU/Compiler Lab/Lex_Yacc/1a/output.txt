@@ -1,0 +1,15 @@
+➜  1a ./a.out     
+Input: AABBBBB
+Valid!!
+➜  1a ./a.out
+Input: AAAA 
+Valid!!
+➜  1a ./a.out
+Input: BBBBBB
+Valid!!
+➜  1a ./a.out
+Input: AAABAAABBBBB
+Invalid!!
+➜  1a ./a.out
+Input: BBBAAAA
+Invalid!! 

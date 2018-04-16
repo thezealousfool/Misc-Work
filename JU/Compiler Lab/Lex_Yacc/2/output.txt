@@ -1,0 +1,11 @@
+➜  2 ./a.out     
+Enter expression: 2+5
+Result: 7 
+Expression: 2*3+7*9/3
+Result: 27 
+Expression: 5*-3/2
+Result: -7.5 
+Expression: 5*-3+-5*-7
+Result: 20 
+Expression: exit
+syntax error 

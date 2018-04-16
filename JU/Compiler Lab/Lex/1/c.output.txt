@@ -1,0 +1,2 @@
+Integers:           3
+Floating Points:    4
